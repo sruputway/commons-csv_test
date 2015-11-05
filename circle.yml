@@ -8,14 +8,15 @@ dependencies:
     - wget https://saucelabs.com/downloads/sc-latest-linux.tar.gz
     - tar -xzf sc-latest-linux.tar.gz
 
-dependencies:
-  post:
-    - python ./install-packages
-    
 test:
   override:
-    - cd sc-*-linux && ./bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY:
-        background: true
+    - cabal test:
+        timeout: 300
+        
+#test:
+ # override:
+  #  - cd sc-*-linux && ./bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY:
+   #     background: true
     #- python -m hello.hello_app:
         #background: true
     #- sleep 60
