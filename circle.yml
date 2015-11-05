@@ -10,7 +10,7 @@ dependencies:
 
 test:
   override:
-    - cabal test:
+    - cabal update:
         timeout: 300
         
 #test:
