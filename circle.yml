@@ -14,5 +14,5 @@ test:
         background: true
     - python -m hello.hello_app:
         background: true
-    - sleep 60
-    - nosetests
+    #- sleep 60
+    #- nosetests
