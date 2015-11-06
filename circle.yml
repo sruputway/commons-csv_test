@@ -12,8 +12,7 @@ test:
         background: true
    # - sleep 60
     #- nosetests
-    # Wait for app to be ready
-    - curl --retry 10 --retry-delay 2 -v http://localhost:5000
+
     # Run selenium tests
     - nosetests
   post:
