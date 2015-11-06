@@ -1,6 +1,12 @@
 test:
- pre:
+post:
    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
    - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+   
+   general:
+  branches:
+    ignore:
+      - gh-pages # list of branches to ignore
+      - /release\/.*/ # or ignore regexes
 
         
