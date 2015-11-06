@@ -6,3 +6,9 @@ test:
         background: true
     - sleep 60
     - nosetests
+    
+test:
+ post:
+   - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+   - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+
