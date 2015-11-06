@@ -2,6 +2,8 @@
  
 test:
   override:
+    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
+    - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
     - cd sc-*-linux && ./bin/sc --user $SAUCE_USERNAME --api-key $SAUCE_ACCESS_KEY --readyfile ~/sauce_is_ready:
         background: true
 
@@ -9,8 +11,3 @@ test:
         background: true
     - sleep 60
     - nosetests
-    
- test:
-  post:
-   - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-   - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
