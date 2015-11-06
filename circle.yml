@@ -1,5 +1,5 @@
 test:
-  override:
+  post:
     - cd sc-*-linux && ./bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY:
         background: true
     - python -m hello.hello_app:
@@ -8,7 +8,7 @@ test:
     - nosetests
     
 test:
- post:
+ override:
    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
    - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
 
