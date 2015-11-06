@@ -1,7 +1,5 @@
 test:
-  override:
-    - exit 0
- post:
+ override:
    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
    - find . -type f -regex ".*/target/failsafe-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
 
