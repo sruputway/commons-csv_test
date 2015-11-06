@@ -11,7 +11,7 @@ test:
     - while [ ! -e ~/sauce_is_ready ]; do sleep 1; done
     - python -m hello.hello_app:
         background: true
-  - sleep 60
+    - sleep 60
     - nosetests
 
 
